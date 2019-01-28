@@ -46,9 +46,9 @@
 								<option value="Обж">
 								<option value="Общество">		
 							</datalist>
-						<p>Введите варианты ответов</p>
-							<input type="text" name="var_ans"> <input type="image" name="picture" src="../534d.png"> <br> <br>
-						<input type="button" value="Добавить вариант" onclick="newvar();">
+						<p>Выберите верный вариант ответа</p>
+							<p><input name="var_ans" type="radio" value="1"> Да </p>
+							<p><input name="var_ans" type="radio" value="2"> Нет </p> 
 						<p><input type="submit"></p>
 					</form>
 

@@ -24,8 +24,8 @@
 				<div class="flex">
     			<div class="itm itm1"><a href="../../">Мои Вопросы</div>
     			<div class="itm itm2"><a href="../">Создать вопрос</a></div>
-    			<div class="itm itm3"><a href="../../">Создать тест</a></div>
-    			<div class="itm itm4">Экспорт вопросов</div>
+    			<div class="itm itm3"><a href="../../create_test">Создать тест</a></div>
+    			<div class="itm itm4"><a href="../../export">Экспорт вопросов</a></div>
 			</div>
 
 				<div> 
@@ -46,8 +46,8 @@
 								<option value="Обж">
 								<option value="Общество">		
 							</datalist>
-						<p>Введите варианты ответов</p>
-							<input type="text" name="var_ans"> <input type="image" name="picture" src="../534d.png"> <br> <br>
+						<p>Введите варианты ответов и выберите правильный</p>
+							<input name="var_ans" type="radio" value="1"> <input type="text"> <input type="image" name="picture" src="../534d.png"> <br> <br>
 						<input type="button" value="Добавить вариант" onclick="newvar();">
 						<p><input type="submit"></p>
 					</form>
