@@ -9,7 +9,7 @@
 	<head>
 			<title>Вопросник</title>
 			<meta lang="ru">
-			<link rel="stylesheet" type="text/css" href="style.css">
+			<link rel="stylesheet" type="text/css" href="../../style.css">
 	 </head>
 		<body> 
 			<div class="header">
@@ -29,9 +29,23 @@
 					<h2>Создание вопроса с коротким ответом</h2>
 
 					<form> 
-						<p>Введите текст вопроса<p>
+						<p><b>Введите текст вопроса</b></p>
 							<textarea></textarea>
-
+							<p>Выберите предметную область: <input list="predmet"></p>
+							<datalist id="predmet">
+								<option value="Физика">
+								<option value="Русский язык">
+								<option value="Литература">
+								<option value="Математика">
+								<option value="Информатика">
+								<option value="Химия">
+								<option value="История">
+								<option value="Обж">
+								<option value="Общество">		
+							</datalist>
+						<p>Введите варианты ответов</p>
+							<input type="text" name="var_ans"> <br> <br>
+						<input type="button" value="Добавить вариант" onclick="newvar();">
 						<p><input type="submit"></p>
 					</form>
 
