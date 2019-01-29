@@ -13,8 +13,7 @@
 	 </head>
 		<body> 
 			<div class="header">
-				<div> <img src="logo.png"> </div>
-
+				<img src="logo.png">
 				</div>
 					<div class="auth"> 
 						<form> 

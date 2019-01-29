@@ -12,6 +12,9 @@
 			<link rel="stylesheet" type="text/css" href="../style.css">
 	 </head>
 		<body> 
+			<div class="header">
+				<img src="logo.png">
+				</div>
 			<div class="flex">
     			<div class="itm itm1">Мои Вопросы</div>
     			<div class="itm itm2"><a href="create_question">Создать вопрос</a></div>

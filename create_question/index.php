@@ -13,13 +13,8 @@
 	 </head>
 		<body> 
 			<div class="header">
-				<div class="right"> 
-					<p>Выйти</p> </div>
-
+				<img src="../logo.png">
 				</div>
-
-
-			</div>
 			<div class="flex">
     			<div class="itm itm1"><a href="../my_questions">Мои Вопросы</a></div>
     			<div class="itm itm2"><a href="#">Создать вопрос</a></div>

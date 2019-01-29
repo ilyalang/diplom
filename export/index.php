@@ -13,9 +13,7 @@
 	 </head>
 		<body> 
 			<div class="header">
-				<div class="right"> 
-					<p>Выйти</p> </div>
-
+				<img src="../logo.png">
 				</div>
 
 				<div class="flex">

@@ -13,10 +13,8 @@
 	 </head>
 		<body> 
 			<div class="header">
-
-
-
-			</div>
+				<img src="../logo.png">
+				</div>
 			<div class="flex">
     			<div class="itm itm1"><a href="#">Мои Вопросы</div>
     			<div class="itm itm2"><a href="../create_question">Создать вопрос</a></div>
@@ -34,22 +32,9 @@
  								<div class="ul"><p>Сопоставление</p></div>
  								<div class="ul"><p>Упорядочивание</p></div>
  							</div>
- 							<div> 
-
- 									<div class="questions">
- 										<h1>Мои вопросы</h1>
-
-
-
- 									 </div>
-
-
- 							</div>	
-
-
- 						</div>
+ 							<div class="questions">
+ 								<h1>Мои вопросы</h1>
+ 							</div>
+ 						</div>	
 		</body>
-
-
-
 </html>
