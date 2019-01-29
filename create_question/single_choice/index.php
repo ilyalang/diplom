@@ -12,10 +12,9 @@
 			<link rel="stylesheet" type="text/css" href="../../style.css">
 	 </head>
 		<div class="header">
-				<div class="right"> 
-					<p>Выйти</p> </div>
-
+				<img src="../../logo.png">
 				</div>
+
 
 
 			</div>
