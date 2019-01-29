@@ -18,9 +18,6 @@
 
 				</div>
 
-
-			</div>
-			
 				<div class="flex">
     			<div class="itm itm1"><a href="../">Мои Вопросы</div>
     			<div class="itm itm2"><a href="../create_question">Создать вопрос</a></div>

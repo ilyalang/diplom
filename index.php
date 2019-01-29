@@ -13,11 +13,9 @@
 	 </head>
 		<body> 
 			<div class="header">
+				<div> <img src="logo.png"> </div>
 
-
-
-			</div>
-			
+				</div>
 					<div class="auth"> 
 						<form> 
 							<fieldset>
