@@ -13,14 +13,13 @@
 	 </head>
 		<body> 
 			<div class="header">
-				<img src="logo.png">
+				<img src="../logo.png">
 				</div>
 			<div class="flex">
-    			<div class="itm itm1">Мои Вопросы</div>
-    			<div class="itm itm2"><a href="create_question">Создать вопрос</a></div>
-    			<div class="itm itm3"><a href="create_test">Создать тест</a></div>
-    			<div class="itm itm4">Экспорт вопросов</div>
-    			<div class="itm itm5">Выйти из системы</div>
+    			<div class="itm itm1"><a href="../">Мои Вопросы</a></div>
+    			<div class="itm itm2"><a href="../create_question">Создать вопрос</a></div>
+    			<div class="itm itm3"><a href="../create_test">Создать тест</a></div>
+    			<div class="itm itm4"><a href="../export">Экспорт вопросов</a></div>
 			</div>
 <!-- 
 					<div class="flex-2">
@@ -35,14 +34,7 @@
 </div>
 
 		<form> 
-			<p>Введите свой вопрос</p>
-			<textarea>
-				
-
-			</textarea>
-
-
-
+			<p> Введите название теста <input type="text"> </p>
 		</form>
 
 		</body>
