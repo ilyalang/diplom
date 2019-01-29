@@ -7,19 +7,14 @@
 .flex {
 	display: flex;
     justify-content: center;
-	
-    background: #77dd77; padding: 5px;
+    background: #ace5ee; padding: 5px;
 }
 
-.itm { background: #77dd77;     font-size: 20px;     color: #eee;     margin: 5px;     padding: 15px; border: solid 1px green;}
+.itm { background: #ace5ee;     font-size: 20px;     color: #eee;     margin: 5px;     padding: 15px; border: solid 1px #9aceeb;}
 
 .header{
 	height: 50px;
-	background: #77dd77;
-}
-
-.typeq{
-
+	background: #ace5ee;
 }
 
 textarea {
@@ -35,4 +30,25 @@ textarea {
 }
 
 .right{
-	float: right;}
+	float: right;
+}
+
+.type_quest{
+	float: left;
+	display: block;
+	margin: 2px;
+	font-size: 20px;
+}
+
+.questions{
+	float: left;
+	display: block;
+	margin-left: 100px;
+	font-size: 20px;
+}
+
+.ul{
+	border: solid 1px #ace5ee;
+	text-align: center;
+	margin-top: 1px;
+}

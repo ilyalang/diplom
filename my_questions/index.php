@@ -21,23 +21,33 @@
     			<div class="itm itm1"><a href="#">Мои Вопросы</div>
     			<div class="itm itm2"><a href="../create_question">Создать вопрос</a></div>
     			<div class="itm itm3"><a href="../create_test">Создать тест</a></div>
-    			<div class="itm itm4">Экспорт вопросов</div>
+    			<div class="itm itm4"><a href="../export">Экспорт вопросов</a></div>
 			</div>
- 						<div class="typeq"> 
+ 						<div> 
+ 							<div class="type_quest"> 
+ 								<center> <h4>Вопросы по типу</h4> </center>
+ 								<div class="ul"><p>Короткий ответ</p></div>
+ 								<div class="ul"><p>Единичный выбор</p></div>
+ 								<div class="ul"><p>Множественный выбор</p></div>
+ 								<div class="ul"><p>Да/Нет</p></div>
+ 								<div class="ul"><p>Числовой</p></div>
+ 								<div class="ul"><p>Сопоставление</p></div>
+ 								<div class="ul"><p>Упорядочивание</p></div>
+ 							</div>
+ 							<div> 
 
-  					<div>Короткий ответ</div>
-  					<div>Единичный выбор</div>
-  					<div>Множественный выбор</div>
-  					<div>Да/Нет</div>
-  					<div>Числовой</div>
-  					<div>Сопоставление</div>
-  					<div>Упорядочивание</div>
-
-</div>
-
-<h1>Мои вопросы</h1>
+ 									<div class="questions">
+ 										<h1>Мои вопросы</h1>
 
 
+
+ 									 </div>
+
+
+ 							</div>	
+
+
+ 						</div>
 		</body>
 
 

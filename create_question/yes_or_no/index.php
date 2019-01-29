@@ -22,14 +22,15 @@
 			</div>
 			
 				<div class="flex">
-    			<div class="itm itm1"><a href="../../">Мои Вопросы</div>
+    			<div class="itm itm1"><a href="../../my_questions">Мои Вопросы</div>
     			<div class="itm itm2"><a href="../">Создать вопрос</a></div>
-    			<div class="itm itm3"><a href="../../">Создать тест</a></div>
-    			<div class="itm itm4">Экспорт вопросов</div>
+    			<div class="itm itm3"><a href="../../create_test">Создать тест</a></div>
+    			<div class="itm itm4"><a href="../../export">Экспорт вопросов</a></div>
 			</div>
 
+
 				<div> 
-					<h2>Создание вопроса с коротким ответом</h2>
+					<h2>Создание вопроса с Да/Нет</h2>
 
 					<form> 
 						<p><b>Введите текст вопроса</b></p>
