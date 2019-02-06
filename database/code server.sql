@@ -15,13 +15,12 @@ CREATE SCHEMA IF NOT EXISTS `diplom` DEFAULT CHARACTER SET utf8 ;
 USE `diplom` ;
 
 -- -----------------------------------------------------
--- Table `diplom`.`answers`
+-- Table `diplom`.`pred_obl`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `diplom`.`answers` (
-  `id_answers` INT NOT NULL,
-  `text_ans` VARCHAR(70) NOT NULL,
-  `id_quest` INT NOT NULL,
-  PRIMARY KEY (`id_answers`))
+CREATE TABLE IF NOT EXISTS `diplom`.`pred_obl` (
+  `id_pred` INT NOT NULL,
+  `name_obl` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_pred`))
 ENGINE = InnoDB;
 
 
@@ -31,13 +30,12 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `diplom`.`questions` (
   `id_quest` INT NOT NULL,
   `question` TEXT(1000) NOT NULL,
-  `id_user` INT NOT NULL,
-  `answers_id_answers` INT NOT NULL,
+  `pred_obl_id_pred` INT NOT NULL,
   PRIMARY KEY (`id_quest`),
-  INDEX `fk_questions_answers1_idx` (`answers_id_answers` ASC) VISIBLE,
-  CONSTRAINT `fk_questions_answers1`
-    FOREIGN KEY (`answers_id_answers`)
-    REFERENCES `diplom`.`answers` (`id_answers`)
+  INDEX `fk_questions_pred_obl_idx` (`pred_obl_id_pred` ASC) VISIBLE,
+  CONSTRAINT `fk_questions_pred_obl`
+    FOREIGN KEY (`pred_obl_id_pred`)
+    REFERENCES `diplom`.`pred_obl` (`id_pred`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -56,8 +54,8 @@ CREATE TABLE IF NOT EXISTS `diplom`.`users` (
   `pather_name` VARCHAR(45) NOT NULL,
   `questions_id_quest` INT NOT NULL,
   PRIMARY KEY (`id_user`),
-  INDEX `fk_users_questions_idx` (`questions_id_quest` ASC) VISIBLE,
-  CONSTRAINT `fk_users_questions`
+  INDEX `fk_users_questions1_idx` (`questions_id_quest` ASC) VISIBLE,
+  CONSTRAINT `fk_users_questions1`
     FOREIGN KEY (`questions_id_quest`)
     REFERENCES `diplom`.`questions` (`id_quest`)
     ON DELETE NO ACTION
@@ -66,12 +64,34 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `diplom`.`pred_obl`
+-- Table `diplom`.`answers`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `diplom`.`pred_obl` (
-  `id_pred` INT NOT NULL,
-  `name_obl` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_pred`))
+CREATE TABLE IF NOT EXISTS `diplom`.`answers` (
+  `text_ans` VARCHAR(70) NOT NULL,
+  `questions_id_quest` INT NOT NULL,
+  INDEX `fk_answers_questions1_idx` (`questions_id_quest` ASC) VISIBLE,
+  CONSTRAINT `fk_answers_questions1`
+    FOREIGN KEY (`questions_id_quest`)
+    REFERENCES `diplom`.`questions` (`id_quest`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `diplom`.`type_question`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `diplom`.`type_question` (
+  `id_type` INT NOT NULL,
+  `name_type` VARCHAR(45) NOT NULL,
+  `questions_id_quest` INT NOT NULL,
+  PRIMARY KEY (`id_type`),
+  INDEX `fk_type_question_questions1_idx` (`questions_id_quest` ASC) VISIBLE,
+  CONSTRAINT `fk_type_question_questions1`
+    FOREIGN KEY (`questions_id_quest`)
+    REFERENCES `diplom`.`questions` (`id_quest`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
