@@ -1,19 +1,17 @@
-<?php 
-	$mysqli = new mysqli('localhost', 'root','', 'diplom');
-	if (mysqli_connect_errno()) {
-		echo "Подключение невозможно: ".mysqli_connect_error();
-	}
-?>
+<?php
+	$mysqli = new mysqli('localhost', 'root','', 'voprosnik');
+	$predmet_obl = "SELECT * FROM pred_obl";
+	$result_select = mysqli_query($mysqli,$predmet_obl);
+	?>
 
 
-
-<html> 
+<html>
 	<head>
 			<title>Вопросник</title>
-			<meta lang="ru">
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8_general_ci" />
 			<link rel="stylesheet" type="text/css" href="../../style.css">
 	 </head>
-		<body> 
+		<body>
 			<div class="header">
 				<img src="../../logo.png">
 				</div>
@@ -21,7 +19,7 @@
 
 
 			</div>
-			
+
 				<div class="flex">
     			<div class="itm itm1"><a href="../../my_questions">Мои Вопросы</div>
     			<div class="itm itm2"><a href="../">Создать вопрос</a></div>
@@ -30,27 +28,26 @@
 			</div>
 
 
-				<div> 
+				<div>
 					<h2>Создание вопроса с коротким ответом</h2>
 
-					<form> 
-						<p><b>Введите текст вопроса</b></p>
+					<form>
+						<p><b>Введите название вопроса: </b> </p>
+						<input type="text" name="name_quest" class="name_quest" size="90">
+						<p><b>Введите текст вопроса: </b></p>
 							<textarea></textarea>
-							<p>Выберите предметную область: <input list="predmet"></p>
-							<datalist id="predmet">
-								<option value="Физика">
-								<option value="Русский язык">
-								<option value="Литература">
-								<option value="Математика">
-								<option value="Информатика">
-								<option value="Химия">
-								<option value="История">
-								<option value="Обж">
-								<option value="Общество">		
+							<p>Выберите предметную область:
+								<?php
+								echo "<select name = ''>";
+								while ($object = mysqli_fetch_object($result_select)){
+									echo "<option value = '$object->name_obl' > $object->name_obl </option>";
+								}
+								echo "</select>";
+ ?>
+							</p>
 							</datalist>
-						<p>Введите варианты ответов</p>
-							<input type="text" name="var_ans"> <input type="image" name="picture" src="../534d.png"> <br> <br>
-						<input type="button" value="Добавить вариант" onclick="newvar();">
+						<p>Введите вариант ответа</p>
+							<input type="text" name="var_ans">
 						<p><input type="submit"></p>
 					</form>
 

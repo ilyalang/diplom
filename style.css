@@ -86,7 +86,7 @@ textarea {
 	animation-name: fadeIn;
 }
 /* Описываем анимацию свойства opacity */
- 
+
 @-webkit-keyframes fadeIn {
 	from {
 		opacity: 0;
@@ -140,7 +140,7 @@ textarea {
 	content: "\f13c";
 }
 /* Изменения стиля переключателей вкладок при наведении */
- 
+
 .tabs>label:hover {
 	color: #888;
 	cursor: pointer;
@@ -156,10 +156,10 @@ textarea {
 #tab1:checked~#content-tab1, #tab2:checked~#content-tab2, #tab3:checked~#content-tab3, #tab4:checked~#content-tab4 {
 	display: block;
 }
-/* Убираем текст с переключателей 
+/* Убираем текст с переключателей
 * и оставляем иконки на малых экранах
 */
- 
+
 @media screen and (max-width: 680px) {
 	.tabs>label {
 		font-size: 0;
@@ -169,11 +169,15 @@ textarea {
 		font-size: 18px;
 	}
 }
-/* Изменяем внутренние отступы 
+/* Изменяем внутренние отступы
 *  переключателей для малых экранов
 */
 @media screen and (max-width: 400px) {
 	.tabs>label {
 		padding: 15px;
 	}
+}
+
+.name_quest{
+	height: 100px;
 }

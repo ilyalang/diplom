@@ -35,7 +35,7 @@
     <section id="content-tab2">
         <p>
          Здесь отображаются типы вопросов 
-        </p>
+        </p>ааавававаааваавааааавса
     </section>    
     <section id="content-tab3">
         <p>

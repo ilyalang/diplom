@@ -1,18 +1,18 @@
-<?php 
-	$mysqli = new mysqli('localhost', 'root','', 'diplom');
+<?php
+	$mysqli = new mysqli('localhost', 'root','', 'voprosnik');
 	if (mysqli_connect_errno()) {
 		echo "Подключение невозможно: ".mysqli_connect_error();
 	}
 ?>
 
 
-<html> 
+<html>
 	<head>
 			<title>Вопросник</title>
 			<meta lang="ru">
 			<link rel="stylesheet" type="text/css" href="../style.css">
 	 </head>
-		<body> 
+		<body>
 			<div class="header">
 				<img src="../logo.png">
 				</div>
@@ -24,7 +24,7 @@
     			<div class="itm itm4"><a href="#">Экспорт вопросов</a></div>
 			</div>
 
-				<div> 
+				<div>
 					<p> Инструкция: Выберите нужные вам вопросы, после выберите нужный вам формат документа, после нажмите на кнопку "Экспорт" </p>
 					<div>
 

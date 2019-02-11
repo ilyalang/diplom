@@ -1,19 +1,19 @@
 
-<?php 
-	$mysqli = new mysqli('localhost', 'root','', 'diplom');
+<?php
+	$mysqli = new mysqli('localhost', 'root','', 'voprosnik');
 	if (mysqli_connect_errno()) {
 		echo "Подключение невозможно: ".mysqli_connect_error();
 	}
 ?>
 
 
-<html> 
+<html>
 	<head>
 			<title>Вопросник</title>
 			<meta lang="ru">
 			<link rel="stylesheet" type="text/css" href="../style.css">
 	 </head>
-		<body> 
+		<body>
 			<div class="header">
 				<img src="../logo.png">
 				</div>
@@ -23,8 +23,8 @@
     			<div class="itm itm3"><a href="../create_test">Создать тест</a></div>
     			<div class="itm itm4"><a href="../export">Экспорт вопросов</a></div>
 			</div>
- 						<div> 
- 							<div class="type_quest"> 
+ 						<div>
+ 							<div class="type_quest">
  								<center> <h4>Вопросы по типу</h4> </center>
  								<div class="ul"><p>Короткий ответ</p></div>
  								<div class="ul"><p>Единичный выбор</p></div>
@@ -37,6 +37,6 @@
  							<div class="questions">
  								<h1>Мои вопросы</h1>
  							</div>
- 						</div>	
+ 						</div>
 		</body>
 </html>
