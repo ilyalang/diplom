@@ -18,7 +18,7 @@
     <label for="tab1" title="questions">Вопросы</label>
 
     <input id="tab2" type="radio" name="tabs">
-    <label for="tab2" title="types">Типы вопросов</label>
+    <label for="tab2" title="types">Предметные области</label>
 
     <section id="content-tab1">
         <p>
@@ -27,14 +27,27 @@
     </section>
     <section id="content-tab2">
 			<?php
-				$result = mysqli_query($mysqli, "SELECT * FROM pred_ob");
-				while ($row = mysqli_fetch_assoc($result)){
-					echo $row['name_obl'];
-				}
+			mysqli_query($mysqli,"SET NAMES 'utf8'");
+			$name_obl = "SELECT * FROM pred_obl";
+			$result_select = mysqli_query($mysqli,$name_obl);
+			while ($object = mysqli_fetch_object($result_select)){
+				echo "<p> $object->name_obl</p>";
+			}
 		?>
          <a href="">Добавить предметную область</a>
-         <form>
-         	<p>Введите название предметной области: <input type="text">  <input type="submit" value="Добавить"> </p>
+         <form method="POST" action="">
+         	<p>Введите название предметной области: <input type="text" name="name_obl">  <input type="submit" value="Добавить"> </p>
+					<?php
+						if (isset($_POST["name_obl"])) {
+							$sql = mysqli_query($mysqli, "INSERT INTO `pred_obl` (`name_obl`) VALUES ('{$_POST['name_obl']}')");
+							if ($sql){
+								echo "<p> Данные успешно добавлены в таблицу. </p>";
+							}
+								else{
+									echo '<p> Произошла ошибка: '. mysqli_error($mysqli) . '</p>';
+								}
+						}
+					?>
          </form>
         </p>
     </section>
