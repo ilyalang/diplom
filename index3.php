@@ -60,6 +60,7 @@
 			<div class="header">
 				<img src="logo.png">
 				</div>
+				<form method ="POST" action"">
         <div class="limiter">
   <div class="container-login100">
     <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
@@ -70,14 +71,14 @@
         <span class="txt1 p-b-11">
           ФИО
         </span>
-        <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+        <div class="wrap-input100 validate-input m-b-36" data-validate = "">
           <input class="input100" type="text" name="FIO" >
           <span class="focus-input100"></span>
         </div>
         <span class="txt1 p-b-11">
           Логин
         </span>
-        <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+        <div class="wrap-input100 validate-input m-b-36" data-validate = "Login is required">
           <input class="input100" type="text" name="username" >
           <span class="focus-input100"></span>
         </div>
@@ -90,7 +91,7 @@
           <span class="txt1 p-b-11">
             E-mail
           </span>
-          <div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+          <div class="wrap-input100 validate-input m-b-36" data-validate = "E-mail is required">
             <input class="input100" type="text" name="email" >
             <span class="focus-input100"></span>
           </div>

@@ -48,15 +48,27 @@
  ?>
 							</p>
 							</datalist>
-						<p>Введите варианты ответа и выберите верный</p>
-							<input type="radio" name="ans" value="1" for="ans1"> <input type="text" for="ans1"> <br> <br>
-							<input type="radio" name="ans" value="2" for="ans2"> <input type="text" for="ans2"> <br> <br>
-							<input type="radio" name="ans" value="3" for="ans3"> <input type="text" for="ans3"> <br> <br>
-							<input type="radio" name="ans" value="4" for="ans4"> <input type="text" for="ans4">
+						<p>Введите верный ответ </p>
+							<input type="text" name="var_ans_true">
+						<p>Введите неверные ответы </p>
+							<input type="text" name="var_ans_false">
+							<input type="text" name="var_ans_false">
+							<input type="text" name="var_ans_false">
 						<p><input type="submit" name="send"></p>
 						<?php
-						$ans = $_POST
-						$result = mysqli_query($mysqli,"INSTERT INTO success_ans (text_sa,id_quest) VALUES ($)")
+						if (isset($_POST["name_quest"]) && isset($_POST["text_quest"]) && isset($_POST["var_ans_true"]) && isset($_POST["var_ans_false"]) ) {
+							$name_quest = $_POST['name_quest'];
+							$text_quest = $_POST['text_quest'];
+							$sql = mysqli_query($mysqli, "INSERT INTO `questions` (`name_quest`,`text_quest`) VALUES ('$name_quest', '$text_quest')");
+							$sql2 = mysqli_query($mysqli, "INSERT INTO `success_ans` (`text_sa`) VALUES ('{$_POST['var_ans_true']}')");
+							$sql3 = mysqli_query($mysqli, "INSERT INTO `wrong_ans` (`text_wa`) VALUES ('{$_POST['var_ans_false']}')");
+							if ($sql){
+								echo "<p> Данные успешно добавлены в таблицу. </p>";
+							}
+								else{
+									echo '<p> Произошла ошибка: '. mysqli_error($mysqli) . '</p>';
+								}
+						}
 						?>
 					</form>
 				</div>

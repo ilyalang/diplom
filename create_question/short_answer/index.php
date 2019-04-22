@@ -54,7 +54,6 @@
 						if (isset($_POST["name_quest"]) && isset($_POST["text_quest"]) && isset($_POST["var_ans"]) ) {
 							$name_quest = $_POST['name_quest'];
 							$text_quest = $_POST['text_quest'];
-							$id_obl = $_POST['select_obl'];
 							$sql = mysqli_query($mysqli, "INSERT INTO `questions` (`name_quest`,`text_quest`,`id_obl`) VALUES ('$name_quest', '$text_quest','$id_obl')");
 							$sql2 = mysqli_query($mysqli, "INSERT INTO `success_ans` (`text_sa`) VALUES ('{$_POST['var_ans']}')");
 							if ($sql){
