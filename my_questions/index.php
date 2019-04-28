@@ -16,13 +16,12 @@
 		<body>
 			<div class="header">
 				<img src="../logo.png">
-				</div>
 			<div class="flex">
-    			<div class="itm itm1"><a href="#">Мои Вопросы</div>
-    			<div class="itm itm2"><a href="../create_question">Создать вопрос</a></div>
-    			<div class="itm itm3"><a href="../create_test">Создать тест</a></div>
-    			<div class="itm itm4"><a href="../export">Экспорт вопросов</a></div>
-			</div>
+    			<div class="itm itm1"><a class="button" href="#">Мои Вопросы</a></div>
+    			<div class="itm itm2"><a class="button" href="../create_question">Создать вопрос</a></div>
+    			<div class="itm itm3"><a class="button" href="../create_test">Создать тест</a></div>
+    			<div class="itm itm4"><a class="button" href="../export">Экспорт вопросов</a></div>
+			</div> </div>
  						<div>
  							<div class="type_quest">
  								<center> <h4>Вопросы по типу</h4> </center>
