@@ -1,5 +1,6 @@
 <?php
   $db = mysqli_connect ("localhost","root","","diplom_voprosnik");
+  session_start();
 ?>
 
 <html>
@@ -17,10 +18,10 @@
 			</div>
 
 				<div class="flex">
-    			<div class="itm itm1"><a href="../../my_questions">Мои Вопросы</div>
-    			<div class="itm itm2"><a href="../">Создать вопрос</a></div>
-    			<div class="itm itm3"><a href="../../create_test">Создать тест</a></div>
-    			<div class="itm itm4"><a href="../../export">Экспорт вопросов</a></div>
+    			<div class="itm itm1"><a class="button" href="../../my_questions">Мои Вопросы</a></div>
+    			<div class="itm itm2"><a class="button" href="../">Создать вопрос</a></div>
+    			<div class="itm itm3"><a class="button" href="../../create_test">Создать тест</a></div>
+    			<div class="itm itm4"><a class="button" href="../../export">Экспорт вопросов</a></div>
 			</div>
 
 
