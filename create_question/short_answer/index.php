@@ -31,41 +31,13 @@
 
 				<div>
 					<h2>Создание вопроса с коротким ответом</h2>
-
+					<div class="form">
 					<form method="POST">
-						<p><b>Введите название вопроса: </b> </p>
-						<input type="text" name="name_quest" class="name_quest" size="90">
-						<p><b>Введите текст вопроса: </b> </p>
-						<input type="text" name="text_quest" class="name_quest" size="150">
-							<p>Выберите предметную область:
-								<?php
-								echo "<select name = 'id_obl'>";
-								while ($object = mysqli_fetch_object($result_select)){
-									echo "<option value = '$object->name_obl' name='id_obl'> $object->name_obl </option>";
-								}
-								echo "</select>";
- ?>
-							</p>
-							</datalist>
-						<p>Введите вариант ответа</p>
-							<input type="text" name="var_ans">
-						<p><input type="submit" name="send"></p>
-						<?php
-						if (isset($_POST["name_quest"]) && isset($_POST["text_quest"]) && isset($_POST["var_ans"]) ) {
-							$name_quest = $_POST['name_quest'];
-							$text_quest = $_POST['text_quest'];
-							$id_obl = $_POST['select_obl'];
-							$sql = mysqli_query($mysqli, "INSERT INTO `questions` (`name_quest`,`text_quest`,`id_obl`) VALUES ('$name_quest', '$text_quest','$id_obl')");
-							$sql2 = mysqli_query($mysqli, "INSERT INTO `success_ans` (`text_sa`) VALUES ('{$_POST['var_ans']}')");
-							if ($sql){
-								echo "<p> Данные успешно добавлены в таблицу. </p>";
-							}
-								else{
-									echo '<p> Произошла ошибка: '. mysqli_error($mysqli) . '</p>';
-								}
-						}
-						?>
-					</form>
+						<label>Введите название вопроса: </label>
+						<input name="name_quest" type="text" size="100" maxlength="100"> <br>
+						<label>Введите текст вопроса: </label> <br>
+						<textarea> </textarea>
+					</form> </div>
 
 				</div>
 

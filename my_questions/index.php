@@ -1,12 +1,6 @@
-
 <?php
-	$mysqli = new mysqli('localhost', 'root','', 'voprosnik');
-	if (mysqli_connect_errno()) {
-		echo "Подключение невозможно: ".mysqli_connect_error();
-	}
+	session_start();
 ?>
-
-
 <html>
 	<head>
 			<title>Вопросник</title>
