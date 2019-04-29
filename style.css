@@ -201,6 +201,7 @@ textarea {
 	width: 1000px;
 	height auto;
 	float: center;
+	padding: 20px;
 }
 .auth{
 	border: solid 1px black;
@@ -208,4 +209,9 @@ textarea {
 	height: auto;
 	padding: 20px;
 	margin-top: 200px;
+
+}
+
+.form input {
+  display: block;
 }

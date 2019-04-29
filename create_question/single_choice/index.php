@@ -32,12 +32,12 @@
 
 				<div>
 					<h2>Создание вопроса с Единичным выбором</h2>
-
-					<form method="POST">
-						<p><b>Введите название вопроса: </b> </p>
-						<input type="text" name="name_quest" class="name_quest" size="90">
-						<p><b>Введите текст вопроса: </b> </p>
-						<input type="text" name="text_quest" class="name_quest" size="150">
+					<div class="form">
+						<form action="create.php" method="POST">
+							<label>Введите название вопроса: </label>
+							<input name="name_quest" type="text" size="100" maxlength="100"> <br>
+							<label>Введите текст вопроса: </label> <br>
+							<textarea name="text_quest"> </textarea>
 							<p>Выберите предметную область:
 								<?php
 								echo "<select name = 'id_obl'>";
@@ -45,25 +45,25 @@
 									echo "<option value = '$object->name_obl' name='id_obl'> $object->name_obl </option>";
 								}
 								echo "</select>";
- ?>
-							</p>
-							</datalist>
-						<p>Введите варианты ответа и выберите верный</p>
-							<input type="radio" name="ans" value="1" for="ans1"> <input type="text" for="ans1"> <br> <br>
-							<input type="radio" name="ans" value="2" for="ans2"> <input type="text" for="ans2"> <br> <br>
-							<input type="radio" name="ans" value="3" for="ans3"> <input type="text" for="ans3"> <br> <br>
-							<input type="radio" name="ans" value="4" for="ans4"> <input type="text" for="ans4">
-						<p><input type="submit" name="send"></p>
-						<?php
-						$ans = $_POST
-						$result = mysqli_query($mysqli,"INSTERT INTO success_ans (text_sa,id_quest) VALUES ($)")
-						?>
-					</form>
+	?> </p> <br>
+							<label>Введите верный ответ: </label><br>
+							<input name="true_ans" type="text" maxlength="20"><br>
+							<label>Введите неверные ответы: </label> <br>
+							<input type="text" name="false_ans" class="false_ans"> <br>
+							<!-- <div class="add">Добавить неверный вариант ответа</div>
+							<script>
+var $add = document.getElementsByClassName('add')[0];
+var $form = document.getElementsByClassName('form')[0];
+$add.addEventListener('click', function(event) {
+  var $input = document.createElement('input');
+  $input.type = 'text';
+  $input.placeholder = 'Неверный ответ';
+  $input.classList.add('false_ans');
+  $form.insertBefore($input, $add);
+});							</script> -->
+							<input name="submit" type="submit" value="Отправить">
+						</form>
+					</div>
 				</div>
-
-
 		</body>
-
-
-
 </html>

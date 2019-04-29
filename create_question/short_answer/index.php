@@ -1,10 +1,6 @@
 <?php
-	$mysqli = new mysqli('localhost', 'root','', 'voprosnik');
-	$predmet_obl = "SELECT * FROM pred_obl";
-	mysqli_query($mysqli,"SET NAMES 'utf8'");
-	$result_select = mysqli_query($mysqli,$predmet_obl);
-	?>
-
+  $db = mysqli_connect ("localhost","root","","diplom_voprosnik");
+?>
 
 <html>
 	<head>
@@ -28,15 +24,25 @@
     			<div class="itm itm4"><a href="../../export">Экспорт вопросов</a></div>
 			</div>
 
-
 				<div>
 					<h2>Создание вопроса с коротким ответом</h2>
 					<div class="form">
-					<form method="POST">
+					<form method="POST" action="create.php">
 						<label>Введите название вопроса: </label>
 						<input name="name_quest" type="text" size="100" maxlength="100"> <br>
 						<label>Введите текст вопроса: </label> <br>
-						<textarea> </textarea>
+						<textarea name="text_quest"> </textarea>
+						<p>Выберите предметную область:
+							<?php
+							echo "<select name = 'id_obl'>";
+							while ($object = mysqli_fetch_object($result_select)){
+								echo "<option value = '$object->name_obl' name='id_obl'> $object->name_obl </option>";
+							}
+							echo "</select>";
+?> </p> <br>
+						<label>Введите верный ответ: </label>
+						<input name="true_ans" type="text" maxlength="20"><br>
+						<input type="submit" name="submit" value="Отправить">
 					</form> </div>
 
 				</div>
