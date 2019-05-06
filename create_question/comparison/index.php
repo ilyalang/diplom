@@ -19,7 +19,6 @@
 				<div class="flex">
     			<div class="itm itm1"><a class="button" href="../../my_questions">Мои Вопросы</a></div>
     			<div class="itm itm2"><a class="button" href="../">Создать вопрос</a></div>
-    			<div class="itm itm3"><a class="button" href="../../create_test">Создать тест</a></div>
     			<div class="itm itm4"><a class="button" href="../../export">Экспорт вопросов</a></div>
 			</div>
 
@@ -40,10 +39,24 @@
 										echo "</select>";
 			?> </p> <br>
 								<label>Введите ответы: </label> <br>
-								<div style="display: flex">
 								<input type="text" name="text_ans" placeholder="Введите текст ответа">
-								<input type="text" name="ans" placeholder="Введите ответ">
-							</div> <br>
+								<input type="text" name="ans" placeholder="Введите ответ"> <br>
+								<div id="input0"> </div>
+								<input type="button" value="Добавить строку" onclick="addInput()">
+								<script>
+								var x = 0;
+
+								function addInput() {
+								if (x < 10) {
+									var str = '<input type="text" name="false_ans" placeholder="Введите текст ответа"> <input type="text" name="ans" placeholder="Введите ответ"><br> <div id="input' + (x + 1) + '"></div>';
+									document.getElementById('input' + x).innerHTML = str;
+									x++;
+								} else
+								{
+									alert('STOP it!');
+								}
+								}
+								</script> <br>
 								<input type="submit" name="submit" value="Отправить">
 
 								</form>

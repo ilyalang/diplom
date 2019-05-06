@@ -19,7 +19,6 @@
 				<div class="flex">
     			<div class="itm itm1"><a class="button" href="../../my_questions">Мои Вопросы</a></div>
     			<div class="itm itm2"><a class="button" href="../">Создать вопрос</a></div>
-    			<div class="itm itm3"><a class="button" href="../../create_test">Создать тест</a></div>
     			<div class="itm itm4"><a class="button" href="../../export">Экспорт вопросов</a></div>
 			</div>
 
@@ -41,20 +40,25 @@
 								echo "</select>";
 	?> </p> <br>
 							<label>Введите верный ответ: </label><br>
-							<input name="true_ans" type="text" maxlength="20"><br>
+							<input name="true_ans" type="text" placeholder="Введите верный ответ" maxlength="20"> <br>
 							<label>Введите неверные ответы: </label> <br>
-							<input type="text" name="false_ans" class="false_ans"> <br>
-							<!-- <div class="add">Добавить неверный вариант ответа</div>
+							<input type="text" name="false_ans" placeholder="Введите неверный ответ"> <br>
+							<div id="input0"></div>
+							<input type="button" value="Добавить строку" onclick="addInput()">
 							<script>
-var $add = document.getElementsByClassName('add')[0];
-var $form = document.getElementsByClassName('form')[0];
-$add.addEventListener('click', function(event) {
-  var $input = document.createElement('input');
-  $input.type = 'text';
-  $input.placeholder = 'Неверный ответ';
-  $input.classList.add('false_ans');
-  $form.insertBefore($input, $add);
-});							</script> -->
+							var x = 0;
+
+function addInput() {
+if (x < 10) {
+	var str = '<input type="text" name="false_ans" placeholder="Введите неверный ответ"> <br> <div id="input' + (x + 1) + '"></div>';
+	document.getElementById('input' + x).innerHTML = str;
+	x++;
+} else
+{
+	alert('STOP it!');
+}
+}
+							</script>
 							<input name="submit" type="submit" value="Отправить">
 						</form>
 					</div>

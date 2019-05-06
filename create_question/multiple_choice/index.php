@@ -20,18 +20,17 @@
 				<div class="flex">
     			<div class="itm itm1"><a class="button" href="../../my_questions">Мои Вопросы</a></div>
     			<div class="itm itm2"><a class="button" href="../">Создать вопрос</a></div>
-    			<div class="itm itm3"><a class="button" href="../../create_test">Создать тест</a></div>
     			<div class="itm itm4"><a class="button" href="../../export">Экспорт вопросов</a></div>
 			</div>
 
 				<div>
 					<h2>Создание вопроса с Множественным выбором</h2>
-
-					<form method="POST">
+					<div class="form">
+										<form method="POST">
 						<p><b>Введите название вопроса: </b> </p>
-						<input type="text" name="name_quest" class="name_quest" size="90">
+						<input name="name_quest" type="text" size="100" maxlength="100"> <br>
 						<p><b>Введите текст вопроса: </b> </p>
-						<input type="text" name="text_quest" class="name_quest" size="150">
+						<textarea name="text_quest"> </textarea>
 							<p>Выберите предметную область:
 								<?php
 								echo "<select name = 'id_obl'>";
@@ -42,13 +41,39 @@
  ?>
 							</p>
 							</datalist>
-						<p>Введите варианты ответа и выберите верный</p>
-							<input type="checkbox" name="ans" value="1" for="ans1"> <input type="text" for="ans1"> <br> <br>
-							<input type="checkbox" name="ans" value="2" for="ans2"> <input type="text" for="ans2"> <br> <br>
-							<input type="checkbox" name="ans" value="3" for="ans3"> <input type="text" for="ans3"> <br> <br>
-							<input type="checkbox" name="ans" value="4" for="ans4"> <input type="text" for="ans4">
-						<p><input type="submit" name="send"></p>
-					</form>
+						<p>Введите верные варианты ответа: </p>
+							<input type="text" name="true_ans" placeholder="Введите верный вариант ответа"> <br>
+							<div id="input0"> </div>
+							<input type="button" value="Добавить вариант ответа"  onclick="addInput()"> <br>
+							<input type="text" name="false_ans" placeholder="Введите неверный вариант ответа"> <br>
+							<div id="input1"> </div>
+							<input type="button" value="Добавить вариант ответа"  onclick="addInput_false_ans()">
+							<script>
+							var x = 0;
+
+function addInput() {
+if (x < 10) {
+	var str = '<input type="text" name="true_ans" placeholder="Введите верный варинат ответа"> <br> <div id="input' + (x + 1) + '"></div>';
+	document.getElementById('input' + x).innerHTML = str;
+	x++;
+} else
+{
+	alert('STOP it!');
+}
+}
+
+function addInput_false_ans() {
+	if (x < 10) {
+		var str = '<input type="text" name="false_ans" placeholder="Введите неверный варинат ответа"> <br> <div id="input' + (x + 1) + '"></div>';
+		document.getElementById('input' + x).innerHTML = str;
+		x++;
+	} else
+	{
+		alert('STOP it!');
+	}
+	}
+							</script>
+					</form> </div>
 				</div>
 
 		</body>
