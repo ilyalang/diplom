@@ -27,13 +27,19 @@ if (isset($_POST['false_ans']))
   $text_quest = htmlspecialchars($text_quest);
   $true_ans = stripslashes ($true_ans);
   $true_ans = htmlspecialchars ($true_ans);
-  $false_ans = stripslashes ($false_ans);
-  $false_ans = htmlspecialchars ($false_ans);
   //подключение бд
   include ('../../database/bd.php');
+  print_r($_POST);
   //внесение данных с формы в бд
-    $result = mysqli_query($db,"INSERT INTO short_question (name_quest, text_quest) VALUES ('$name_quest','$text_quest')");
-    $result = mysqli_query($db,"INSERT INTO answers (ans,yn_ans) values ('$','')");
+    $result = mysqli_query($db,"INSERT INTO single_choice (name_singlech_quest, text_singlech_quest) VALUES ('$name_quest','$text_quest')");
+    $result2 = mysqli_query($db,"INSERT INTO answers (ans,yn_ans) VALUES ('$true_ans',Y)");
+    foreach ($false_ans as $key => $value) {
+      $result3 = mysqli_query($db,"INSERT INTO answers (ans,yn_ans) VALUES ('$false_ans',N)");
+    }
+    echo $result3;
+    /* foreach ($_POST['false_ans'] as $false_ans => $value) {
+    $result3 = mysqli_query($db,"INSERT INTO answers (ans,yn_ans) VALUES ('$false_ans',N)");
+  } */
 //проверка на ошибки
 if ($result=='TRUE'){
   echo "Данные успешно занесены";

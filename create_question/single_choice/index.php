@@ -42,7 +42,7 @@
 							<label>Введите верный ответ: </label><br>
 							<input name="true_ans" type="text" placeholder="Введите верный ответ" maxlength="20"> <br>
 							<label>Введите неверные ответы: </label> <br>
-							<input type="text" name="false_ans" placeholder="Введите неверный ответ"> <br>
+							<input type="text" name="false_ans[]" placeholder="Введите неверный ответ"> <br>
 							<div id="input0"></div>
 							<input type="button" value="Добавить строку" onclick="addInput()">
 							<script>
@@ -50,7 +50,7 @@
 
 function addInput() {
 if (x < 10) {
-	var str = '<input type="text" name="false_ans" placeholder="Введите неверный ответ"> <br> <div id="input' + (x + 1) + '"></div>';
+	var str = '<input type="text" name="false_ans[]" placeholder="Введите неверный ответ"> <br> <div id="input' + (x + 1) + '"></div>';
 	document.getElementById('input' + x).innerHTML = str;
 	x++;
 } else
