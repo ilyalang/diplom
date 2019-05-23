@@ -58,7 +58,7 @@ if (x < 10) {
 	alert('STOP it!');
 }
 }
-							</script>
+</script>
 							<input name="submit" type="submit" value="Отправить">
 						</form>
 					</div>

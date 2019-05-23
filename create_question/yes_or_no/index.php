@@ -42,13 +42,11 @@
 									echo "</select>";
 		?> </p> <br>
 								<label>Выберите правильный ответ: </label> <br>
-								<input type="radio" name="true_ans" value="Да"> <br>
-								<input type="radio" name="true_ans" value="Нет"> <br>
-								<input type="sumbit" name="submit" value="Отправить">
+								<input type="radio" name="yon_true_ans" value="Yes"> <br>
+								<input type="radio" name="yon_true_ans" value="No"> <br>
+								<input type="submit" name="submit" value="Отправить">
 						</form>
 				</div> </div>
-
-
 		</body>
 
 
