@@ -1,5 +1,7 @@
 <?php
 	$db = mysqli_connect ("localhost","root","","diplom_voprosnik");
+	mysqli_query($db,"SET CHARACTER SET 'utf8'");
+	mysqli_query($db,"SET NAMES 'utf8'");
 ?>
 
 <html>
@@ -32,13 +34,16 @@
 							<label>Введите текст вопроса: </label> <br>
 							<textarea name="text_quest"> </textarea>
 							<p>Выберите предметную область:
+								<select name="predobl">
 								<?php
-								echo "<select name = 'id_obl'>";
-								while ($object = mysqli_fetch_object($result_select)){
-									echo "<option value = '$object->name_obl' name='id_obl'> $object->name_obl </option>";
-								}
-								echo "</select>";
-	?> </p> <br>
+							$sql = "SELECT * FROM pred_obl";
+							$result = mysqli_query($db,$sql);
+							while ($row=mysqli_fetch_assoc($result)){
+								$id = $row['id_obl'];
+								$name1 = $row['name_obl'];
+								echo "<option value=\"$id\">$name1</option>";
+							}
+	?> 					</select> </p> <br>
 							<label>Введите верный ответ: </label><br>
 							<input name="true_ans" type="text" placeholder="Введите верный ответ" maxlength="20"> <br>
 							<label>Введите неверные ответы: </label> <br>
