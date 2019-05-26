@@ -45,18 +45,19 @@
 ?> 					</select> </p> <br>
 						<p>Введите верные варианты ответа: </p>
 							<input type="text" name="true_ans[]" placeholder="Введите верный вариант ответа"> <br>
-							<div id="input0"> </div>
+							<div id="in_true0"> </div>
 							<input type="button" value="Добавить вариант ответа"  onclick="addInput()"> <br>
 							<input type="text" name="false_ans[]" placeholder="Введите неверный вариант ответа"> <br>
-							<div id="input1"> </div>
+							<div id="in_false0"> </div>
 							<input type="button" value="Добавить вариант ответа"  onclick="addInput_false_ans()">
 							<script>
 							var x = 0;
+							var y = 0;
 
 function addInput() {
 if (x < 10) {
-	var str = '<input type="text" name="true_ans[]" placeholder="Введите верный варинат ответа"> <br> <div id="input' + (x + 1) + '"></div>';
-	document.getElementById('input' + x).innerHTML = str;
+	var str = '<input type="text" name="true_ans[]" placeholder="Введите верный варинат ответа"> <br> <div id="in_true' + (x + 1) + '"></div>';
+	document.getElementById('in_true' + x).innerHTML = str;
 	x++;
 } else
 {
@@ -65,10 +66,10 @@ if (x < 10) {
 }
 
 function addInput_false_ans() {
-	if (x < 10) {
-		var str = '<input type="text" name="false_ans[]" placeholder="Введите неверный варинат ответа"> <br> <div id="input' + (x + 1) + '"></div>';
-		document.getElementById('input' + x).innerHTML = str;
-		x++;
+	if (y < 10) {
+		var str1 = '<input type="text" name="false_ans[]" placeholder="Введите неверный варинат ответа"> <br> <div id="in_false' + (y + 1) + '"></div>';
+		document.getElementById('in_false' + y).innerHTML = str1;
+		y++;
 	} else
 	{
 		alert('STOP it!');

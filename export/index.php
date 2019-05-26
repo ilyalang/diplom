@@ -36,7 +36,24 @@
 							<p><input type="radio" name="pdf">PDF</p>
 							<input type="button" name="save_file" value="Сохранить">
 				</div>
-
+				<?php
+					function fetch_data(){
+						$output = '';
+						include('../database/bd.php');
+						$sql = "SELECT * FROM answers_multi ORDER BY id_ans_multi ASC";
+						$result = mysqli_query($db,$sql);
+						while ($row = mysqli_fetch_array($result)){
+							$output .= '<tr>
+								<td>'.$row["id_multi"].'</td>
+								<td>'.$row["id_v_multi"].'</td>
+								<td>'.$row["ans_multi"].'</td>
+								<td>'.$row["yn_multi"].'</td>
+								</tr>';
+						}
+						return $output;
+					}
+					if(Isset($_POST['']))
+				?>
 
 		</body>
 

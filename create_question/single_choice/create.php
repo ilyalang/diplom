@@ -35,8 +35,9 @@ if (isset($_POST['predobl']))
 
   //подключение бд
   include ('../../database/bd.php');
+  //занесение данных в базу 
     $result = mysqli_query($db, "INSERT INTO single_choice(name_sch_quest,text_sch_quest,id_obl,id_user) VALUES ('$name_quest','$text_quest',$predobl,1)");
-    $latest_id = mysqli_insert_id($db);
+    $latest_id = mysqli_insert_id($db);//получаем значение последнего ID
     $result2 = mysqli_query($db, "INSERT INTO answers_single(id_v,ans,yn_ans) VALUES ($latest_id,'$true_ans','YES')");
     foreach ($_POST['false_ans'] as $false_answer) {
       $result3 = mysqli_query($db, "INSERT INTO answers_single(id_v,ans,yn_ans) VALUES ($latest_id,'$false_answer','NO')");

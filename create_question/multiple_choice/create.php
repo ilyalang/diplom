@@ -31,13 +31,16 @@ if (isset($_POST['predobl']))
   $text_quest = htmlspecialchars($text_quest);
 
   include ('../../database/bd.php');
-    $result = mysqli_query($db, "INSERT INTO single_choice(name_sch_quest,text_sch_quest,id_obl,id_user) VALUES ('$name_quest','$text_quest',$predobl,1)");
+    $result = mysqli_query($db, "INSERT INTO multi_question(name_multi_quest,text_multi_quest,id_obl,id_user) VALUES ('$name_quest','$text_quest',$predobl,1)");
     $latest_id = mysqli_insert_id($db);
     foreach ($_POST['true_ans'] as $true_answer) {
-      $result2 = mysqli_query($db, "INSERT INTO answers_single(id_v,ans,yn_ans) VALUES ($latest_id,'$true_answer','NO')");
-      echo "INSERT INTO answers_single(id_v,ans,yn_ans) VALUES ($latest_id,'$false_answer','NO')"."<br>";
+      $result2 = mysqli_query($db, "INSERT INTO answers_multi(id_v_multi,ans_multi,yn_multi) VALUES ($latest_id,'$true_answer','YES')");
+      echo "INSERT INTO answers_multi(id_v_multi,ans_multi,yn_multi) VALUES ($latest_id,'$true_answer','YES')"."<br>";
     }
-
+    foreach ($_POST['false_ans'] as $false_answer) {
+      $result3 = mysqli_query($db,"INSERT INTO answers_multi(id_v_multi,ans_multi,yn_multi) VALUES ($latest_id,'$false_answer','NO')");
+      echo "INSERT INTO answers_multi(id_v_multi,ans_multi,yn_multi) VALUES ($latest_id,'$false_answer','NO')"."<br>";
+    }
     if ($result=='TRUE'){
       echo "Данные успешно занесены";
     }
