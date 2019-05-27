@@ -1,62 +1,48 @@
-<?php
-	$mysqli = new mysqli('localhost', 'root','', 'voprosnik');
-	if (mysqli_connect_errno()) {
-		echo "Подключение невозможно: ".mysqli_connect_error();
+<?php 
+require "fpdf.php";
+$db = new PDO('mysql:host=localhost;dbname=diplom_voprosnik','root','');
+
+
+class sh_a extends FPDF{
+	function header(){
+		$this->SetFont('Arial','B',14);
+		$this->Cell(276,5,'EXPORT QUESTION',0,0,'C');
+		$this->Ln();
+		$this->SetFont('Times','',12);
+		$this->Cell(276,10,'Short_answer',0,0,'C');
+		$this->Ln(20);
 	}
-?>
-
-
-<html>
-	<head>
-			<title>Вопросник</title>
-			<meta lang="ru">
-			<link rel="stylesheet" type="text/css" href="../style.css">
-	 </head>
-		<body>
-			<div class="header">
-				<img src="../logo.png">
-				</div>
-
-				<div class="flex">
-    			<div class="itm itm1"><a class="button" href="../my_questions">Мои Вопросы</a></div>
-    			<div class="itm itm2"><a class="button" href="../create_question">Создать вопрос</a></div>
-    			<div class="itm itm4"><a class="button" href="#">Экспорт вопросов</a></div>
-			</div>
-
-				<div>
-					<p> Инструкция: Выберите нужные вам вопросы, после выберите нужный вам формат документа, после нажмите на кнопку "Экспорт" </p>
-					<div>
-
-
-
-					 </div>
-							<p> Выберите формат: </p>
-							<p><input type="radio" name="excel">Excel</p>
-							<p><input type="radio" name="word">Word </p>
-							<p><input type="radio" name="pdf">PDF</p>
-							<input type="button" name="save_file" value="Сохранить">
-				</div>
-				<?php
-					function fetch_data(){
-						$output = '';
-						include('../database/bd.php');
-						$sql = "SELECT * FROM answers_multi ORDER BY id_ans_multi ASC";
-						$result = mysqli_query($db,$sql);
-						while ($row = mysqli_fetch_array($result)){
-							$output .= '<tr>
-								<td>'.$row["id_multi"].'</td>
-								<td>'.$row["id_v_multi"].'</td>
-								<td>'.$row["ans_multi"].'</td>
-								<td>'.$row["yn_multi"].'</td>
-								</tr>';
-						}
-						return $output;
-					}
-					if(Isset($_POST['']))
-				?>
-
-		</body>
-
-
-
-</html>
+	function footer(){
+		$this->SetY(-15);
+		$this->SetFont('Arial','',8);
+		$this->Cell(0,10,'Page'.$this->PageNo().'/{nb}',0,0,'C');
+	}
+	function headerTable(){
+		$this->SetFont('Times','B',12);
+		$this->Cell(20,10,'ID',1,0,'C');
+		$this->Cell(40,10,'name_quest',1,0,'C');
+		$this->Cell(40,10,'text_quest',1,0,'C');
+		$this->Cell(40,10,'sh_true_ans',1,0,'C');
+		$this->Ln();
+	}
+	function viewTable($db){
+		$this->SetFont('Times','',12);
+		$short_q = $db->query('SELECT * FROM short_question');
+		while($data = $short_q->fetch(PDO::FETCH_OBJ)){
+		$this->SetFont('Times','B',12);
+		$this->Cell(20,10,$data->id_sh_quest,1,0,'C');
+		$this->Cell(40,10,$data->name_quest,1,0,'L');
+		$this->Cell(40,10,$data->text_quest,1,0,'L');
+		$this->Cell(40,10,$data->sh_true_ans,1,0,'L');
+		$this->Ln();
+		}
+	}
+	//$this->SetFont('Arial','B',14);
+	//$this->Cell(276,10,'HEAD',0,0,'C');
+}
+$pdf = new sh_a();
+$pdf->AliasNbPages();
+$pdf->AddPage('L','A4',0);
+$pdf->headerTable();
+$pdf->viewTable($db);
+$pdf->Output();
